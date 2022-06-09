@@ -6,6 +6,11 @@ import { HumanDto } from './dto/human.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get()
+  async hello(){
+    return 'hello';
+  }
+
   @Post('/mutant')
   @HttpCode(200)
   async storeDNA(@Body() humanDto: HumanDto): Promise<string> {
