@@ -54,6 +54,8 @@ export class AppService {
 
       const ratio = stats.count_mutant_dna / stats.count_human_dna;
 
+      console.log(stats);
+
       return {
         count_human_dna: stats.count_human_dna,
         count_mutant_dna: stats.count_mutant_dna,
