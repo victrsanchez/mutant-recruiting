@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Post('/mutant')
-  @HttpCode(200)
+  //@HttpCode(200)
   async storeDNA(@Body() humanDto: HumanDto): Promise<string> {
     return this.appService.storeDNA(humanDto);
   }
