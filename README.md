@@ -35,6 +35,7 @@ $ npm install
 ## Settings
 
 -Database: create a new empty database in localhost
+
 -ENV file: copy .env.example to .env file update all env variables to localhost
 
 ## Running the app
@@ -66,15 +67,15 @@ $ npm run start:prod
 ["ATGCGG","CAGAGC","CTGTGC","ACAATG","CTCCTA","TCCTTG"]
 ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
 
+```
 
 - GET - localhost:3000/stats: get stats about the data stored
-
+```bash
 {
     "count_human_dna": 1,
     "count_mutant_dna": 0,
     "ratio": 0
 }
-
 ```
 
 ## Test
@@ -98,7 +99,8 @@ $ npm run test:cov
     "dna" : ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
 }
 ```
--get: https://challenge-mutant-vash.herokuapp.com/stats
+- GET: https://challenge-mutant-vash.herokuapp.com/stats
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
