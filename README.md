@@ -34,9 +34,9 @@ $ npm install
 
 ## Settings
 
--Database: create a new empty database in localhost
+- Database: create a new empty database in localhost
 
--ENV file: copy .env.example to .env file update all env variables to localhost
+- ENV file: copy .env.example to .env file update all env variables to localhost enviroment
 
 ## Running the app
 
