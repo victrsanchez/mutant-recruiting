@@ -32,6 +32,11 @@
 $ npm install
 ```
 
+## Settings
+
+-Database: create a new empty database in localhost
+-ENV file: copy .env.example to .env file update all env variables to localhost
+
 ## Running the app
 
 ```bash
@@ -43,6 +48,33 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## End points
+
+-POST localhost:3000/mutant: store and validate if the given data it is a mutant
+```bash
+{
+    "dna" : ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
+}
+
+#mutants
+["ATGCGG","CAGGGC","CTGTAC","ACTACG","CTCCTA","TCCTTG"]
+["ATGCGA","CAGGTC","CTGTGT","ACAAGG","CGCCTA","TCACTG"]
+
+#no mutants
+["ATGCGG","CAGAGC","CTGTGC","ACAATG","CTCCTA","TCCTTG"]
+["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
+
+
+-GET localhost:3000/stats: get stats about the data stored
+
+{
+    "count_human_dna": 1,
+    "count_mutant_dna": 0,
+    "ratio": 0
+}
+
 ```
 
 ## Test
@@ -58,6 +90,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## API
+-URL: https://challenge-mutant-vash.herokuapp.com
+-POST: https://challenge-mutant-vash.herokuapp.com/mutant
+```bash
+{
+    "dna" : ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
+}
+```
+-get: https://challenge-mutant-vash.herokuapp.com/stats
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
