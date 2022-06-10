@@ -34,7 +34,7 @@ $ npm install
 
 ## Settings
 
-- Database: create a new empty database in localhost
+- Database: create a new empty database in localhost (mysql or postgres)
 
 - ENV file: copy .env.example to .env file and update all env variables with your properly local environment
 
