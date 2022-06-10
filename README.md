@@ -52,7 +52,7 @@ $ npm run start:prod
 
 ## End points
 
--POST localhost:3000/mutant: store and validate if the given data it is a mutant
+- POST - localhost:3000/mutant: store and validate if the given data it is a mutant
 ```bash
 {
     "dna" : ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
@@ -67,7 +67,7 @@ $ npm run start:prod
 ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
 
 
--GET localhost:3000/stats: get stats about the data stored
+- GET - localhost:3000/stats: get stats about the data stored
 
 {
     "count_human_dna": 1,
@@ -91,8 +91,8 @@ $ npm run test:cov
 ```
 
 ## API
--URL: https://challenge-mutant-vash.herokuapp.com
--POST: https://challenge-mutant-vash.herokuapp.com/mutant
+- URL - https://challenge-mutant-vash.herokuapp.com
+- POST - https://challenge-mutant-vash.herokuapp.com/mutant
 ```bash
 {
     "dna" : ["ATGCGG","CAGGGC","CTGTAC","AATACG","CACTTA","TCCTTG"]
