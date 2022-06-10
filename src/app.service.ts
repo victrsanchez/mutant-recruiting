@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { Connection, Repository } from 'typeorm';
 import { HumanDto } from './dto/human.dto';
+import { StatsDto } from './dto/stats.dto';
 import { Dna } from './entities/dna.entity';
 
 @Injectable()
@@ -43,23 +44,19 @@ export class AppService {
     }
   }
 
-  async stats() {
+  async stats(): Promise<StatsDto> {
     try {
-      const stats = await this.dnaRepository
-        .createQueryBuilder('dna')
-        .select('')
-        .addSelect('count(*)', 'count_human_dna')
-        .addSelect('SUM( if( dna.isMutant = TRUE,1,0 )  )', 'count_mutant_dna')
-        .getRawOne();
+      const count_human_dna = await this.dnaRepository.count();
+      const count_mutant_dna = await this.dnaRepository.count({
+        where: { isMutant: true },
+      });
 
-      const ratio = stats.count_mutant_dna / stats.count_human_dna;
-
-      console.log(stats);
+      const ratio = count_mutant_dna / count_human_dna;
 
       return {
-        count_human_dna: stats.count_human_dna,
-        count_mutant_dna: stats.count_mutant_dna,
-        ratio: (Math.round(ratio * 100) / 100).toFixed(2),
+        count_human_dna,
+        count_mutant_dna,
+        ratio: +(Math.round(ratio * 100) / 100).toFixed(2),
       };
     } catch (error) {
       throw new Error(error.message);
